@@ -1,0 +1,734 @@
+@font-face {
+  font-family: "Voyage";
+  src: url("../../voyage-regular.otf") format("opentype"),
+    url("../../voyage-bold.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+}
+
+body {
+  background: var(--useColorBlack);
+}
+
+:root {
+  --useColorBlack: #171717;
+  --useColorWhite: #ffffff;
+  --useColor3: #c9bdab;
+
+  --style-MarginTop: 40px;
+  --Img-MarginTop: 80px;
+
+  --imgGap: 160px;
+}
+
+.container-images {
+  max-width: 1760px;
+  width: 100%;
+  margin: 0 auto;
+  /* padding: 0 40px; */
+}
+
+.container {
+  max-width: 1108px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.main__images {
+  height: 1050px;
+  position: relative;
+  z-index: 0;
+  background: url("../Images/main_images.png") center no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.main__images-opacity {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 10;
+  background: #00000080;
+}
+
+.remove-opacity {
+  position: relative;
+  z-index: 50;
+}
+
+.header {
+  width: 100%;
+  padding: 9px 130px 0px 130px;
+}
+
+.header__title {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.header h1 {
+  position: absolute;
+  font-family: "Voyage";
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 57.6px;
+  letter-spacing: 0.14em;
+  color: #ffffff;
+}
+
+.header_right {
+  margin-right: 10%;
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 44px;
+}
+
+.header_right p {
+  font-family: "Cormorant";
+  font-size: 28px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 33.91px;
+  letter-spacing: -0.01em;
+  text-align: left;
+
+  color: #ffffff;
+}
+
+.main {
+  margin-top: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main__inner {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.main__inner-title2 {
+  text-transform: uppercase;
+  max-width: 172px;
+}
+.main__inner-title1 {
+  text-transform: uppercase;
+  max-width: 172px;
+  text-align: center;
+}
+
+.main__inner-title1::before {
+  content: "wedding photo album";
+  font-family: "Voyage";
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 31.2px;
+  letter-spacing: 0.04em;
+
+  color: rgba(255, 255, 255, 1);
+}
+.main__inner-title2-before {
+  margin-left: -42px;
+  text-align: center;
+}
+
+.main__inner-title2-before::before {
+  content: "romantic moments";
+  font-family: "Voyage";
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 31.2px;
+  letter-spacing: 0.04em;
+
+  color: rgba(255, 255, 255, 1);
+}
+
+.main h1 {
+  text-transform: uppercase;
+  margin-top: 85px;
+
+  font-family: "Voyage";
+  font-size: 104px;
+  font-weight: 400;
+  line-height: 124.8px;
+  letter-spacing: 0.12em;
+  text-align: left;
+
+  color: rgba(255, 255, 255, 1);
+}
+
+.main__inner-blog {
+  margin-top: 40px;
+  display: flex;
+  gap: 70px;
+  align-items: center;
+}
+
+.main__inner-blog_title1 {
+  text-align: end;
+}
+
+.main__inner-blog_title2,
+.main__inner-blog_title1 {
+  width: 311px;
+  text-transform: uppercase;
+}
+
+.main__inner-blog_title1::before {
+  content: "endless memories";
+  font-family: "Voyage";
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 31.2px;
+  letter-spacing: 0.04em;
+
+  color: #ffffff;
+}
+
+.main__inner-blog_title2::before {
+  content: "unforgettable wedding";
+  font-family: "Voyage";
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 31.2px;
+  letter-spacing: 0.04em;
+
+  color: #ffffff;
+}
+
+.main__blog-border {
+  width: 80px;
+  height: 2px;
+  background: #ffffff;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.route {
+  display: none;
+}
+
+.modal-content {
+  position: absolute;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  background: rgba(23, 23, 23, 1);
+  width: 702px;
+  padding: 37px 80px;
+}
+
+.close {
+  display: flex;
+  justify-content: flex-end;
+  color: #ffffff;
+  font-size: 52px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal ul {
+  list-style: none;
+  padding: 0;
+}
+
+.modal ul li {
+  margin: 15px 0;
+}
+
+.modal ul li a {
+  width: 100%;
+  font-family: "Cormorant";
+  font-size: 32px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 80px;
+  letter-spacing: 0.1em;
+  text-align: left;
+
+  color: rgba(255, 255, 255, 1);
+
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px;
+  transition: transform 0.3s ease;
+}
+
+.modal ul li a::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #ffffff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: transform 0.3s ease;
+}
+
+.modal ul li a:hover::after {
+  transform: translateY(-5px);
+}
+
+.burger-menu {
+  cursor: pointer;
+}
+
+/* Title */
+
+.title {
+  padding: 150px 0;
+  color: var(--useColorWhite);
+}
+
+.title-text {
+  padding: 0px 40px;
+}
+
+.title-text span {
+  font-family: "Montserrat", sans-serif;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 34.13px;
+  letter-spacing: -0.01em;
+  text-align: left;
+}
+
+.title-text h1 {
+  margin-top: 2px;
+
+  font-family: "Voyage";
+  font-size: 68px;
+  font-weight: 400;
+  line-height: 81.6px;
+  letter-spacing: 0.04em;
+  text-align: left;
+}
+
+.title-text p {
+  margin-top: 20px;
+}
+
+.items-text h1 {
+  font-family: "Cormorant";
+  font-style: italic;
+  font-weight: 400;
+  font-size: 128px;
+  line-height: 155px;
+  /* identical to box height */
+  letter-spacing: -0.01em;
+
+  color: #ffffff;
+}
+
+.text p {
+  max-width: 697px;
+  font-family: "Cormorant";
+  font-style: italic;
+  font-weight: 300;
+  font-size: 36px;
+  line-height: 44px;
+  letter-spacing: -0.01em;
+
+  color: #ffffff;
+}
+
+.title-text p::before {
+  content: "Is there anything better than a wedding at The Maker Hotel in Hudson, NY? After this day,	I can confidently say, no, no there's not. A few things you need to know about this day:The bride wore a vintage dress and it was the first item she purchased for the wedding. The groom was fondly known at work, where these two met, as 'Hot Sam' and now I'm sure he's officially going to be called that by everyone they know as it was explained in detail during their vows. The bride mentioned the patriarchy in her vows, which had me silently cheering from behind the lens. They didn't have a sit down dinner. They mingled through cocktail hour, mingled through dinner with passed plates and most guests stood for the ceremony and all stood for the toasts and as you know, I firmly support more mingling, going against tradition and it always means better photos! Cheers to these newlyweds, to doing things your own way, to standing up and making the world better and for so	many more happy years together!";
+  max-width: 100%;
+  margin-top: 32px;
+
+  font-family: "Montserrat";
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 36px;
+  text-align: left;
+}
+
+/* Images */
+
+.images {
+  background: url("../svg/svg.svg") center/cover no-repeat;
+  width: 100%;
+  /* height: 21104px; */
+}
+
+.WH600px900pxWH {
+  margin-top: 10%;
+}
+
+.images-photo1 {
+  display: flex;
+  gap: var(--imgGap);
+  justify-content: center;
+  padding-top: 140px;
+}
+
+.images-photo1 img:nth-child(2) {
+  transform: translate(0, 80px);
+}
+
+.images-photo2 {
+  padding: 0px 80px;
+  margin-top: 160px;
+  display: flex;
+  gap: var(--imgGap);
+}
+
+.images-photo2 img:nth-child(3) {
+  max-width: 600px;
+  height: 900px;
+  transform: translate(0, 80px);
+}
+
+.images-photo3 {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  gap: var(--imgGap);
+}
+
+.images-photo2-img2 {
+  transform: translate(0, 3%);
+}
+
+.images-photo2-img1,
+.images-photo2-img2 {
+  max-width: 600px;
+}
+
+.images-photo2-img1 img,
+.images-photo2-img2 img {
+  margin-bottom: 160px;
+}
+
+.images-photo4 {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--imgGap);
+}
+
+.images-photo2-img3 {
+  transform: translate(0, 80px);
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.images-photo5 img {
+  margin-top: 168px;
+}
+
+.images-photo6 {
+  margin-top: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--imgGap);
+}
+
+.images-photo6 > div:nth-child(1) img {
+  transform: translate(0, 80px);
+}
+
+.images-photo6-img3 {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.images-photo7 {
+  display: flex;
+  justify-content: center;
+  gap: var(--imgGap);
+  margin-top: 80px;
+}
+
+.images-photo7 img:nth-child(2) {
+  transform: translate(0, 80px);
+}
+
+.images-photo8 {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--imgGap);
+}
+
+.images-photo8-img1 img,
+.images-photo8-img2 img {
+  margin-bottom: 80px;
+}
+
+.images-photo8-img2 {
+  transform: translate(0, 80px);
+}
+
+.images-photo9 {
+  margin-top: 0;
+}
+
+.images-photo10 {
+  margin-top: 245px;
+}
+
+.images-photo11 {
+  margin-top: 0;
+}
+
+.images-photo11 div:nth-child(2) img {
+  transform: translate(0, 160px);
+}
+
+.images-photo12 {
+  margin-top: 160px;
+  align-items: flex-start;
+}
+
+.images-photo13-img2 {
+  transform: translate(0, -284px);
+}
+
+.images-photo13-img2 img {
+  margin-bottom: 80px;
+}
+.images-photo5 img,
+.images-photo9 img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+/* Footer */
+
+.footer__inner {
+  padding: 0px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 140px;
+}
+
+.footer__inner h1 {
+  font-family: "Voyage";
+  font-size: 68px;
+  font-weight: 400;
+  line-height: 81.6px;
+  letter-spacing: 0.04em;
+  text-align: left;
+
+  color: var(--useColorWhite);
+}
+
+.photograph {
+  font-family: "Montserrat";
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29.26px;
+  text-align: center;
+
+  color: var(--useColorWhite);
+  margin-top: 80px;
+}
+
+.creators {
+  font-family: "Montserrat";
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29.26px;
+  text-align: center;
+
+  color: var(--useColorWhite);
+  margin-top: 40px;
+}
+
+.footer__inner p:nth-child(4) {
+  margin-top: 236px;
+  margin-bottom: 44px;
+  font-family: "Montserrat";
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24.38px;
+  text-align: center;
+
+  color: var(--useColorWhite);
+}
+
+.footer__inner p span {
+  font-family: "Montserrat";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17.07px;
+  text-align: center;
+}
+
+/*  */
+
+.container-gallery {
+  padding: 0 80px;
+  margin: 0 auto;
+}
+
+/* HEADER */
+
+.header__inner {
+  display: flex;
+  justify-content: end;
+}
+
+.header__inner > div img {
+  cursor: pointer;
+}
+
+.header__inner > div h1 {
+  font-size: 28px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 842px;
+  background: #171717;
+  margin-top: 200px;
+  text-align: center;
+}
+
+footer > h1 {
+  font-family: sans-serif;
+  margin-top: 129px;
+  font-weight: 500;
+  > span {
+    font-size: 24px;
+    font-family: sans-serif;
+    font-weight: 500;
+  }
+}
+
+.description {
+  padding-left: 180px;
+  padding-top: 166px;
+}
+
+.description > div {
+  display: flex;
+  height: 155px;
+}
+
+.description > div > h1 {
+  font-size: 128px;
+  font-style: italic;
+  font-weight: 400;
+  color: #fff;
+}
+
+.description > div > span {
+  font-size: 250px;
+  transform: translate(-230px, -150px);
+  font-style: italic;
+  opacity: 0.4;
+  color: #787878;
+}
+
+.description > p {
+  font-size: 36px;
+  line-height: 43.6px;
+  max-width: 850px;
+  width: 100%;
+  font-style: italic;
+  letter-spacing: normal;
+  font-weight: 300;
+  color: #fff;
+}
+
+.galary__inner {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(162px, 1fr));
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 140px;
+  gap: 20px;
+}
+
+.galary__inner > img {
+  width: 100%;
+}
+
+.footer_ {
+  justify-content: start;
+  padding-top: 100px;
+  color: #fff !important;
+  background: #171717 !important;
+  height: auto;
+}
+
+.footer_ > h1 {
+  color: #fff !important;
+  margin-top: 60px;
+  font-size: 68px;
+}
+
+.footer_ h5 {
+  color: #fff;
+  font-size: 20px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.nav {
+  display: flex;
+  gap: 12px;
+}
+.nav > a {
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+  font-family: sans-serif;
+}
+.creators {
+  margin-top: 77px;
+}
+
+.footer_ > p {
+  color: #fff;
+  font-size: 24px;
+  font-family: sans-serif;
+}
+
+.copy {
+  margin-top: 100px;
+  font-size: 12px !important;
+}
+
+.close > span {
+  font-family: sans-serif;
+  color: #ffff;
+}
